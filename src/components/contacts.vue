@@ -1,20 +1,29 @@
 <template>
   <div class="contacts">
      <p>Contacts</p>
-        <ul>
+        {{ contacts }}
+        <!-- <ul>
             <li>mail:{{ mail }}</li>
             <li>skype: tim.bikbaev </li>
             <li>phone: +380671014882</li>
             <li>telegram: @t_bikbaev</li>
-        </ul>
+        </ul> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'contacts',
-  props: {
-    mail: String
+  data() {
+    return {
+      contacts: null
+    };
+  },
+  created() {
+    // Simple GET request using fetch
+    fetch("http://localhost:5000/api/contacts")
+      .then(response => response.json())
+      .then(data => (this.contacts = data));
   }
 }
 
