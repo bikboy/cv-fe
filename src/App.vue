@@ -3,17 +3,20 @@
     <h1>Timur Bikbaev</h1>
     <h2>DevOps Engineer</h2>
     <img id="photo" alt="Tim logo" src="./assets/avatar.jpg">
-    <contacts mail="t.bikbaev@gmail.com"/>
+    <contacts/>
+    <skills/>
   </div>
 </template>
 
 <script>
 import contacts from './components/contacts.vue'
+import skills from './components/skills.vue'
 
 export default {
   name: 'App',
   components: {
-    contacts
+    contacts,
+    skills
   }
 }
 </script>

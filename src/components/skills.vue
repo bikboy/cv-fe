@@ -1,26 +1,26 @@
 <template>
-  <div class="contacts">
-     <p>Contacts</p>
-        <!-- {{ contacts }} -->
+  <div class="skills">
+     <h1>Skills</h1>
+        <p v-for="skill in skills" :key="skill">{{skill}}</p>
         <ul class="flex-container row-reverse">
-          <li class="flex-item" v-for="(value, type) in contacts" :key="type">{{type}} : {{value}}</li>
+          <li class="flex-item" v-for="type in skills.clouds" :key="type">{{type}}</li>
         </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'contacts',
+  name: 'skills',
   data() {
     return {
-      contacts: null
+      skills: null
     };
   },
   created() {
     // Simple GET request using fetch
-    fetch("http://localhost:8080/api/contacts")
+    fetch("http://localhost:8080/api/skills")
       .then(response => response.json())
-      .then(data => (this.contacts = data));
+      .then(data => (this.skills = data));
   }
 }
 
