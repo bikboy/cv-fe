@@ -1,13 +1,10 @@
 <template>
   <div class="contacts">
      <p>Contacts</p>
-        {{ contacts }}
-        <!-- <ul>
-            <li>mail:{{ mail }}</li>
-            <li>skype: tim.bikbaev </li>
-            <li>phone: +380671014882</li>
-            <li>telegram: @t_bikbaev</li>
-        </ul> -->
+        <!-- {{ contacts }} -->
+        <ul class="flex-container row-reverse">
+          <li class="flex-item" v-for="(value, type) in contacts" :key="type">{{type}} : {{value}}</li>
+        </ul>
   </div>
 </template>
 
@@ -21,7 +18,7 @@ export default {
   },
   created() {
     // Simple GET request using fetch
-    fetch("http://localhost:5000/api/contacts")
+    fetch("http://localhost:8080/api/contacts")
       .then(response => response.json())
       .then(data => (this.contacts = data));
   }
