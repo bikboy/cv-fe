@@ -1,10 +1,54 @@
 <template>
-  <div class="skills">
-     <h1>Skills</h1>
-        <p v-for="skill in skills" :key="skill">{{skill}}</p>
-        <ul class="flex-container row-reverse">
-          <li class="flex-item" v-for="type in skills.clouds" :key="type">{{type}}</li>
-        </ul>
+  <div id="skills" >
+     <h2>Skills</h2>
+      <div id="clouds">
+        <h4>Clouds</h4>
+        <div v-for="skill in skills.skills" :key="skill">
+          <template v-if="skill.category == 'clouds'">
+            {{skill.name}}
+          </template>
+        </div>
+      </div>
+      <div id="kubernetes">
+        <h4>Kubernetes</h4>
+        <div v-for="skill in skills.skills" :key="skill">
+          <template v-if="skill.category == 'kubernetes'">
+            {{skill.name}}
+          </template>
+        </div>
+      </div>
+      <div id="iaac">
+        <h4>IaaC</h4>
+        <div v-for="skill in skills.skills" :key="skill">
+          <template v-if="skill.category == 'iaac'">
+            {{skill.name}}
+          </template>
+        </div>
+      </div>
+      <div id="ci">
+        <h4>CI</h4>
+        <div v-for="skill in skills.skills" :key="skill">
+          <template v-if="skill.category == 'ci'">
+            {{skill.name}}
+          </template>
+        </div>
+      </div>
+      <div id="scripting">
+        <h4>Scripting</h4>
+        <div v-for="skill in skills.skills" :key="skill">
+          <template v-if="skill.category == 'scripting'">
+            {{skill.name}}
+          </template>
+        </div>
+      </div>
+      <div id="db">
+        <h4>DB</h4>
+        <div v-for="skill in skills.skills" :key="skill">
+          <template v-if="skill.category == 'db'">
+            {{skill.name}}
+          </template>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -17,17 +61,50 @@ export default {
     };
   },
   created() {
-    // Simple GET request using fetch
     fetch("http://localhost:8080/api/skills")
       .then(response => response.json())
       .then(data => (this.skills = data));
+  },
+  render(h) {
+    return h("div", "TEST")
   }
+  // computed: {
+    
+  //   clouds: function () {
+  //     return this.skills.filter(i => i.skills.category === 'clouds')
+  //   },
+  //   kubernetes: function () {
+  //     return this.skills.filter(i => i.skills.category === 'kubernetes')
+  //   }
+  // }
 }
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#skills {
+	display: flex;
+	margin: 20px;	
+}
+#clouds{
+	margin: 20px;
+}
+#kubernetes {
+	margin: 20px;
+}
+#iaac{
+	margin: 20px;
+}
+#ci {
+	margin: 20px;
+}
+#scripting{
+	margin: 20px;
+}
+#db {
+	margin: 20px;
+}
 h3 {
   margin: 40px 0 0;
 }

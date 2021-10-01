@@ -1,6 +1,6 @@
 <template>
   <div class="contacts">
-     <p>Contacts</p>
+     <h2>Contacts</h2>
         <!-- {{ contacts }} -->
         <ul class="flex-container row-reverse">
           <li class="flex-item" v-for="(value, type) in contacts" :key="type">{{type}} : {{value}}</li>
@@ -28,6 +28,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#contacts {
+	margin: 20px;	
+}
 h3 {
   margin: 40px 0 0;
 }
